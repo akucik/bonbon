@@ -1,0 +1,6 @@
+.card {
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(202, 201, 201, 0.25);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ebebeb -96.04%, #ffffff 100%);
+}

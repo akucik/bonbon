@@ -1,0 +1,30 @@
+.sweet {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding-bottom: 1rem;
+}
+.sweet img {
+  width: 33.3333%;
+  max-width: 40%;
+}
+
+.sweet h3 {
+  margin: 0 0 0.1rem 0;
+  font-family: "quicksand";
+  font-size: x-large;
+}
+
+.description {
+  font-family: "quicksand";
+  color: #5f5e5e;
+  padding-top: 0.75rem;
+}
+
+.price {
+  margin-top: 0.5rem;
+  font-weight: regular;
+  color: #302f2f;
+  font-size: large;
+  padding-top: 0.5rem;
+}
