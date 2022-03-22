@@ -24,7 +24,7 @@
 }
 
 .price {
-  font-weight: bold;
+  font-weight: 0.5rem;
   color: #292929;
 }
 
@@ -37,6 +37,7 @@
 }
 
 .actions {
+  font-size: 0.75rem;
   display: flex;
   flex-direction: column;
 }

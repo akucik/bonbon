@@ -13,12 +13,16 @@
   padding-bottom: 6rem;
 }
 
+.Loading {
+  text-align: center;
+  font-family: "quicksand";
+}
+
 .sweets ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
 @keyframes sweets-appear {
   from {
     opacity: 0;
