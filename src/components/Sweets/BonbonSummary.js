@@ -6,7 +6,7 @@ const BonbonSummary = () => {
       <div>
         <h2>Wyjatkowe słodkosci na szczególne momenty</h2>
       </div>
-      <div>
+      <div className={styles.wrapper}>
         <p>
           Jesteśmy pracownia cukiernicza tworzaca wyjatkowe mono-desery. Każdy
           product wykonujemy ze szczególna uwaga oraz przy użyciu najwyższej

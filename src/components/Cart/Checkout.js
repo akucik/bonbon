@@ -2,12 +2,15 @@ import { useRef, useState } from "react";
 import styles from "./Checkout.module.css";
 
 const isEmpty = (value) => value.trim() === "";
+const hasFiveDigits = (value) => value.trim().length === 5;
 
 const Checkout = (props) => {
   const [formInputValidity, setFormInputValidity] = useState({
     name: true,
     surname: true,
     postCode: true,
+    street: true,
+    city: true,
   });
   const nameInputRef = useRef();
   const surnameInputRef = useRef();
@@ -25,33 +28,51 @@ const Checkout = (props) => {
 
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredSurnameIsValid = !isEmpty(enteredSurname);
-    const enteredPostCodeIsValid = !isEmpty(enteredPostCode);
+    const enteredPostCodeIsValid = hasFiveDigits(enteredPostCode);
+    const enteredStreetIsValid = !isEmpty(enteredStreet);
+    const enteredCityIsValid = !isEmpty(enteredCity);
 
     setFormInputValidity({
       name: enteredNameIsValid,
       surname: enteredSurnameIsValid,
       postCode: enteredPostCodeIsValid,
+      street: enteredStreetIsValid,
+      city: enteredCityIsValid,
     });
 
     const formIsValid =
-      enteredNameIsValid && enteredSurnameIsValid && enteredPostCodeIsValid;
+      enteredNameIsValid &&
+      enteredSurnameIsValid &&
+      enteredStreetIsValid &&
+      enteredPostCodeIsValid &&
+      enteredCityIsValid;
 
     if (!formIsValid) {
       return;
-      //submit user data at the checkout
+      //if form is invalid dont proceed with the code below.
+      //if valid proceed with form submittion
     }
+    //submit user data at the checkout, we pass pointer(set in Cart.js component on Checkout), with object as value(see below)
+
+    props.onConfirm({
+      name: enteredName,
+      surname: enteredSurname,
+      street: enteredSurname,
+      postCode: enteredPostCode,
+      city: enteredCity,
+    });
   };
+
+  const styleNameInput = `${styles.control} ${
+    formInputValidity.name ? "" : styles.invalid
+  }`;
 
   return (
     <form className={styles.form} onSubmit={orderConfirmHandler}>
       <div>
         <h3>Dane Personalne</h3>
       </div>
-      <div
-        className={`${styles.control} ${
-          formInputValidity.name ? "" : styles.invalid
-        }`}
-      >
+      <div className={styleNameInput}>
         <label htmlFor="name">Imię</label>
         <input ref={nameInputRef} type="text" id="name"></input>
         {!formInputValidity.name && <p>prosze wpisz swoje imię</p>}
@@ -82,7 +103,7 @@ const Checkout = (props) => {
         <button type="button" onClick={props.onCancel}>
           Anuluj
         </button>
-        <button className={styles.submit}>Potwierdz zamówienie</button>
+        <button className={styles.submit}>Potwierdz Zamówienie</button>
       </div>
     </form>
   );
