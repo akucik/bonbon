@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Noto+Sans&family=Poiret+One&family=Quicksand:wght@300;400;500;600;700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Oooh+Baby&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=BioRhyme+Expanded:wght@400;700;800&display=swap");
 
 * {
   box-sizing: border-box;
@@ -12,5 +12,4 @@ html {
 
 body {
   margin: 0;
-  background-color: #f1f1f1;
 }

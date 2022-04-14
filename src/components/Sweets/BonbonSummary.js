@@ -4,13 +4,13 @@ const BonbonSummary = () => {
   return (
     <section className={styles.summary}>
       <div>
-        <h2>Wyjatkowe słodkosci na szczególne momenty</h2>
+        <h2>Wyjatkowe słodkie wnetrze</h2>
       </div>
       <div className={styles.wrapper}>
         <p>
-          Jesteśmy pracownia cukiernicza tworzaca wyjatkowe mono-desery. Każdy
-          product wykonujemy ze szczególna uwaga oraz przy użyciu najwyższej
-          jakości swieżych, naturalnych składników.
+          Jesteśmy niewielka autorska cukiernia tworzaca wyjatkowe mono-desery.
+          Każdy product wykonujemy ze szczególna uwaga oraz przy użyciu
+          najwyższej jakości swieżych, sezonowych i naturalnych składników.
         </p>
       </div>
     </section>

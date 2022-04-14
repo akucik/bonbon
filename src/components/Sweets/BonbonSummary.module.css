@@ -15,17 +15,16 @@
 }
 
 .summary h2 {
-  font-family: "Oooh Baby", cursive;
+  font-family: "Quicksand", sans-serif;
   font-size: 3rem;
   margin-top: 0;
 }
 .summary p {
   overflow-wrap: break-word;
-  font-family: "quicksand";
+  font-family: "quicksand", sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
   color: rgb(90, 90, 90);
   text-align: left;
-
-  padding-left: 2.5rem;
+  padding-left: 4rem;
 }
