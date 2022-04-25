@@ -12,6 +12,9 @@ const Header = (props) => {
           <button onClick={props.onShowAuth}>Loguj-się</button>
           <button>Wyloguj-się</button>
         </div>
+        <div>
+          <button>Konto</button>
+        </div>
         <CartButton onClick={props.onShowCart} />
       </header>
       <div className={styles["main-image"]}>

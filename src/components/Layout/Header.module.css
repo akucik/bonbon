@@ -40,6 +40,13 @@
   color: rgb(69, 69, 69);
 }
 
+.header button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: rgb(8, 77, 75);
+}
+
 .main-image {
   width: 100%;
   max-height: 100vh;

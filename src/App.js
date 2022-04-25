@@ -9,24 +9,23 @@ import AuthPage from "./pages/AuthPage";
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
   const [authPage, setAuthPage] = useState(false);
-
   const showCartHandler = () => {
     setCartIsShown(true);
   };
-
   const hideCartHandler = () => {
     setCartIsShown(false);
   };
+
   const showAuthHandler = () => {
     setAuthPage(true);
   };
-  const removeAuthHandler = () => {
+  const hideAuthHandler = () => {
     setAuthPage(false);
   };
 
   return (
     <Fragment>
-      {authPage && <AuthPage onClose={removeAuthHandler} />}
+      {authPage && <AuthPage onClose={hideAuthHandler} />}
       <CartProvider>
         {cartIsShown && <Cart onClose={hideCartHandler} />}
         <Header onShowCart={showCartHandler} onShowAuth={showAuthHandler} />

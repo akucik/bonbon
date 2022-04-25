@@ -15,24 +15,24 @@
 
 .button:hover,
 .button:active {
-  background-color: #e7e3e2;
+  background-color: #f0dfd685;
 }
 
 .icon {
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
-  color: rgb(62, 153, 153);
+  color: rgb(45, 128, 128);
 }
 
 .badge {
-  background-color: #f5f3f3c4;
+  background-color: #f7eacb92;
   padding: 0.25rem 1rem;
   border-radius: 25px;
   margin-left: 0.5rem;
   font-weight: bold;
   font-size: 1em;
-  color: rgb(62, 153, 153);
+  color: rgb(45, 128, 128);
 }
 
 .button:hover .badge,
