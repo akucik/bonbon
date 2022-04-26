@@ -1,10 +1,13 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
+import AuthContext from "../store/auth-context";
 
 import styles from "./AuthForm.module.css";
 
 const AuthForm = (props) => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+  const authCtx = useContext(AuthContext);
+
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,37 +24,47 @@ const AuthForm = (props) => {
 
     // optional: add validation for entered input
 
+    let url;
+
     if (isLogin) {
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDKRM2VxpvV1Fy2AEjzuhK71saGvTYcukM";
     } else {
-      fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDKRM2VxpvV1Fy2AEjzuhK71saGvTYcukM",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email: enteredEmail,
-            password: enteredPassword,
-            returnSecureToken: true,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      ).then((response) => {
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDKRM2VxpvV1Fy2AEjzuhK71saGvTYcukM";
+    }
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({
+        email: enteredEmail,
+        password: enteredPassword,
+        returnSecureToken: true,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
         setIsLoading(false);
         if (response.ok) {
-          console.log(response);
+          return response.json();
+
           //...
         } else {
           return response.json().then((data) => {
             //show error msg(as modal)
             let errorMsg = "authentication failed!";
-            alert(errorMsg);
 
-            console.log(data);
+            throw new Error(errorMsg);
           });
         }
+      })
+      .then((data) => {
+        authCtx.loginF(data.idToken);
+      })
+      .catch((error) => {
+        alert(error.message);
       });
-    }
   };
 
   return (
