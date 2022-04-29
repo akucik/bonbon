@@ -16,19 +16,19 @@ function App() {
     setCartIsShown(false);
   };
 
-  const showAuthHandler = () => {
+  const showAuthFormHandler = () => {
     setAuthPage(true);
   };
-  const hideAuthHandler = () => {
+  const hideAuthFormHandler = () => {
     setAuthPage(false);
   };
 
   return (
     <Fragment>
-      {authPage && <AuthPage onClose={hideAuthHandler} />}
+      {authPage && <AuthPage onClose={hideAuthFormHandler} />}
       <CartProvider>
         {cartIsShown && <Cart onClose={hideCartHandler} />}
-        <Header onShowCart={showCartHandler} onShowAuth={showAuthHandler} />
+        <Header onShowCart={showCartHandler} onShowAuth={showAuthFormHandler} />
         <main>
           <Sweets />
         </main>

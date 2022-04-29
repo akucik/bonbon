@@ -61,6 +61,7 @@ const AuthForm = (props) => {
       })
       .then((data) => {
         authCtx.loginF(data.idToken);
+        console.log(data);
       })
       .catch((error) => {
         alert(error.message);

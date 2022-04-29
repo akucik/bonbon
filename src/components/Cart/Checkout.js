@@ -50,7 +50,7 @@ const Checkout = (props) => {
     if (!formIsValid) {
       return;
       //if form is invalid dont proceed with the code below.
-      //if valid proceed with form submittion
+      //if valid proceed with form submission
     }
     //submit user data at the checkout, we pass pointer(set in Cart.js component on Checkout), with object as value(see below)
 

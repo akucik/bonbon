@@ -1,20 +1,35 @@
 import { Fragment } from "react";
+import { useContext } from "react";
 import BonbonHeader from "../../assets/images/bonbonHeader.png";
 import CartButton from "./CartButton";
 
 import styles from "./Header.module.css";
+import AuthContext from "../../store/auth-context";
 
 const Header = (props) => {
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isLoggedIn;
+  const logoutHandler = () => {
+    authCtx.logoutF();
+  };
   return (
     <Fragment>
       <header className={styles.header}>
-        <div>
-          <button onClick={props.onShowAuth}>Loguj-się</button>
-          <button>Wyloguj-się</button>
-        </div>
-        <div>
-          <button>Konto</button>
-        </div>
+        {!isLoggedIn && (
+          <div>
+            <button onClick={props.onShowAuth}>Loguj-się</button>
+          </div>
+        )}
+        {isLoggedIn && (
+          <div>
+            <button onClick={logoutHandler}>Wyloguj-się</button>
+          </div>
+        )}
+        {isLoggedIn && (
+          <div>
+            <button>Konto</button>
+          </div>
+        )}
         <CartButton onClick={props.onShowCart} />
       </header>
       <div className={styles["main-image"]}>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 const AuthContext = React.createContext({
   token: "",
   isLoggedIn: false,
@@ -6,6 +7,7 @@ const AuthContext = React.createContext({
   logoutF: () => {},
 });
 //double !! converts string value to boolean value(true/false)
+
 export const AuthContextProvider = (props) => {
   const [token, setToken] = useState(null);
 
