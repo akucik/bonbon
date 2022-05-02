@@ -26,6 +26,7 @@ function App() {
   return (
     <Fragment>
       {authPage && <AuthPage onClose={hideAuthFormHandler} />}
+
       <CartProvider>
         {cartIsShown && <Cart onClose={hideCartHandler} />}
         <Header onShowCart={showCartHandler} onShowAuth={showAuthFormHandler} />
