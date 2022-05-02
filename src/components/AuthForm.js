@@ -47,6 +47,7 @@ const AuthForm = (props) => {
       .then((response) => {
         setIsLoading(false);
         if (response.ok) {
+          props.onHideAuth();
           return response.json();
 
           //...
