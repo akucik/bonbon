@@ -65,7 +65,6 @@ const AuthForm = (props) => {
           new Date().getTime() + +data.expiresIn * 1000
         );
         authCtx.loginF(data.idToken, expirationTime.toISOString());
-        console.log(data);
       })
       .catch((error) => {
         alert(error.message);
